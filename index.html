@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Уравнения</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Equation">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1 id="top">Уравнения. Задание 9, 20. ОГЭ</h1>
+        <label for="language">Язык</label>
+        <select name="language" id="language" onchange="if (this.value) location.href = this.value">
+            <option value="../ru/index.html" selected>Русский</option>
+            <!-- <option value="../en/index.html">English</option> -->
+        </select>
+    </header>
+
+    <main>
+        <details>
+            <summary class="equation-choice">Линейное уравнение </summary>
+            <details open>
+                <summary class="study-choice">Теория</summary>
+                <div class="solver-formula">
+                    <h2>Формула:</h2>
+                    <h4>kx + m = 0</h4>
+                    <p>k ≠ 0</p>
+                    <p>x = -m / k</p>
+                </div>
+
+                <div class="solver-numinput">
+                    <input id="k" placeholder="k"> 
+                    x +
+                    <input id="m" placeholder="m">
+                    = 0
+                    <br>
+                    <br>
+                    <button onclick="countLinear()">Отправить</button>
+                    <button onclick="clearInputLinear()">Очистить</button>
+                </div>
+                
+                <div class="solver-result">
+                    <div style="text-align: left;">
+                        <h3>Результат:</h3>
+                    </div>
+                    <div class="solver-solution">
+                        <p id="solutionLinear1"></p>
+                        <p id="solutionLinear2"></p>
+                        <p id="solutionLinear3"></p>
+                    </div>
+                    <h3 id="xLinear"></h3>
+                    <h1 id="errorLinear" style='text-align: center;'></h1>
+                </div> 
+                
+            </details>
+
+            <details>
+                <summary class="study-choice">Практика</summary>
+                <div class="taskText">
+                    
+                    <h3>Задание: Найти корень. Ответ сократить до сотых.</h3>
+                    <p id="taskLinear"></p>
+                </div>
+                <div class="taskInput">
+                    <h3>Ответ: </h3>
+                    <input type="text" id="taskInputLinear">
+                    <br>
+                    <br>
+                    <button onclick="newTaskLinear()">След.</button>
+                    <button onclick="submitTaskLinear()">Отправить</button>
+                </div>
+            </details>
+
+        </details>
+
+        <details>
+            <summary class="equation-choice">Квадратное уравнение </summary>
+
+            <details open>
+                <summary class="study-choice">Теория</summary>
+
+                <div class="solver-formula">
+                    <h2>Формула: Дискриминант</h2>
+                    <h4>ax² + bx + c = 0 при a ≠ 0</h4>
+                    <p>D = b² - 4ac</p>
+                    <p><strong>x₁ = (-b+√D) / (2a)</strong></p>
+                    <p><strong>x₁ = (-b-√D) / (2a)</strong></p>
+                </div>
+
+                <div class="solver-numinput">
+                    <input id="a" placeholder="a">
+                    x² +
+                    <input id="b" placeholder="b">
+                    x +
+                    <input id="c" placeholder="c">
+                    = 0
+                    <br>
+                    <br>
+                    <button onclick="countQuadratic()">Отправить</button>
+                    <button onclick="clearInputQuadratic()">Очистить</button>
+                </div>
+                
+                <div class="solver-result">
+                    <div style="text-align: left;">
+                        <h3>Результат:</h3>
+                    </div>
+
+                    <p id="dQuadratic"></p>
+                    
+                    <div class="solver-solution">
+                        <p id="solutionQuadratic1"></p>
+                        <p id="solutionQuadratic2"></p>
+                    </div>
+                    
+                    <h3 id="x1Quadratic"></h3>
+                    <h3 id="x2Quadratic"></h3>
+                    <h1 id="errorQuadratic" style='text-align: center;'></h1>
+                </div> 
+                
+
+            </details>
+
+            <details>
+                <summary class="study-choice">Практика</summary>
+                <div class="taskText">
+                    
+                    <h3>Задание:</h3>
+                    <p id="taskQuadratic1"></p>
+                    <p id="taskQuadratic2"></p>
+                </div>
+                <div class="taskInput">
+                    <h3>Ответ: </h3>
+                    <input type="text" id="taskInputQuadratic">
+                    <br>
+                    <br>
+                    <button onclick="newTaskQuadratic()">След.</button>
+                    <button onclick="submitTaskQuadratic()">Отправить</button>
+                </div>
+            </details>
+        </details>
+
+        <!-- <details>
+            <summary class="equation-choice">Кубическое уравнение (ax³ + bx² + cx + d = 0) </summary>
+
+            <details open>
+                <summary class="study-choice">Теория</summary>
+
+                <div class="solver-formula">
+                    <h2>Формула Кардано</h2>
+                    <h4>ax³ + bx² + cx + d = 0 при a ≠ 0</h4>
+                    <p><strong></strong></p>
+                    <p><strong></strong></p>
+                </div>
+            </details>
+        </details> -->
+
+        <details>
+            <summary class="equation-choice">Биквадратное уравнение </summary>
+
+            <details open>
+                <summary class="study-choice">Теория</summary>
+
+                <div class="solver-formula">
+                    <h2>Формула: Дискриминант</h2>
+                    <h4>ax⁴ + bx² + c = 0 при a ≠ 0</h4>
+                    <p>Пусть t = x²</p>
+                    <p>D = b² - 4ac</p>
+                    <p>t₁ = (-b+√D) / (2a); t₂ = (-b-√D) / (2a) </p>
+                    <p><strong>x₁ = √t₁; x₂ = -√t₁</strong></p>
+                    <p><strong>x₃ = √t₂; x₄ = -√t₂</strong></p>
+                </div>
+            </details>
+        </details>
+
+    </main>
+
+    <footer>
+        <p>Школьный проект</p>
+        <ul>
+            <li><a href="#top">Вверх</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

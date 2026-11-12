@@ -1,0 +1,253 @@
+:root {
+    --navy: #202b50;
+    --blue: #5266c7;
+    --blue-hover: #3f50a6;
+    --gray: #a1a2a3;
+    --gray-hover: #6d6e6e;
+    --text: #263044;
+    --muted: #65718a;
+    --page: #f2f5fb;
+    --surface: #fff;
+    --border: #dce2ed;
+    --shadow: 0 8px 24px rgba(32, 43, 80, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    color: var(--text);
+    background: var(--page);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 18px max(20px, calc((100% - 960px) / 2));
+    color: white;
+    background: linear-gradient(135deg, var(--navy), #354a83);
+    box-shadow: 0 3px 12px rgba(32, 43, 80, 0.16);
+}
+
+header h1 {
+    margin: 0 auto 0 0;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+header select {
+    padding: 8px 10px;
+    border: 1px solid #cbd3e2;
+    border-radius: 8px;
+    color: var(--text);
+    background: white;
+    font: inherit;
+}
+
+main {
+    flex: 1;
+    width: min(100% - 32px, 960px);
+    margin: 32px auto;
+}
+
+/* Раскрывающиеся разделы */
+details {
+    margin: 14px 0;
+}
+
+summary {
+    cursor: pointer;
+}
+
+summary::marker {
+    color: currentColor;
+}
+
+.equation-choice,
+.study-choice {
+    list-style-position: inside;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.equation-choice {
+    padding: 14px 18px;
+    color: white;
+    background: var(--blue);
+    box-shadow: 0 4px 12px rgba(63, 80, 166, 0.15);
+}
+
+.equation-choice:hover {
+    background: var(--blue-hover);
+}
+
+.study-choice {
+    padding: 11px 16px;
+    color: white;
+    background: var(--gray);
+}
+
+.study-choice:hover {
+    background: var(--gray-hover);
+}
+
+/* Карточки задания и решателя */
+.taskText,
+.taskInput,
+.solver-numinput,
+.solver-result,
+.solver-formula {
+    margin: 14px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.taskText,
+.solver-numinput {
+    padding: 16px 20px;
+    background: #fff9df;
+}
+
+.taskInput,
+.solver-result {
+    padding: 20px;
+    background: var(--surface);
+}
+
+.solver-formula {
+    padding: 16px 20px;
+    background: #fff6cf;
+}
+
+.taskText h3,
+.taskInput h3,
+.solver-result h3,
+.solver-formula h2 {
+    margin-top: 0;
+}
+
+.solver-result h1,
+.solver-result h3 {
+    overflow-wrap: anywhere;
+}
+
+.solver-solution p {
+    margin: 8px 0;
+}
+
+/* Поля ввода */
+input {
+    max-width: 100%;
+    padding: 9px 11px;
+    border: 1px solid #bcc6d7;
+    border-radius: 7px;
+    color: var(--text);
+    background: white;
+    font: inherit;
+}
+
+.solver-numinput input {
+    border: 1px solid #bcc6d7;
+    width: 82px;
+    text-align: center;
+}
+
+.taskInput input {
+    width: min(100%, 420px);
+    border: 1px, solid black;
+}
+
+/* Кнопки */
+button {
+    margin: 4px 6px 4px 0;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    background: var(--blue);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--blue-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #8fa5ff;
+    outline-offset: 3px;
+}
+
+/* Подвал */
+footer {
+    padding: 16px 20px;
+    color: var(--muted);
+    background: #e4e9f2;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer ul {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer a {
+    color: var(--blue-hover);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+    header {
+        padding: 16px;
+    }
+
+    main {
+        width: min(100% - 24px, 960px);
+        margin: 20px auto;
+    }
+
+    .taskInput,
+    .solver-result {
+        padding: 16px;
+    }
+
+    .solver-numinput input {
+        width: 68px;
+    }
+}
